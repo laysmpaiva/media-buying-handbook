@@ -6,10 +6,10 @@
 <title>Media Buying Handbook · Meta Ads Playbook</title>
 <style>
   :root{
-    --bg:#0b0d17; --text:#f2f3f8; --muted:#9aa0b5; --soft:#c9d1e3;
-    --surface:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.09);
-    --grad:linear-gradient(95deg,#a78bfa 0%,#ec4899 55%,#f97316 100%);
-    --violet:#a78bfa; --pink:#ec4899; --mint:#6ee7b7; --sky:#38bdf8; --orange:#f97316;
+    --bg:#001210; --text:#f0ede4; --muted:#8fa89a; --soft:#cfd8cd;
+    --surface:rgba(240,237,228,0.05); --border:rgba(240,237,228,0.12);
+    --grad:linear-gradient(95deg,#e9d59c 0%,#b7903b 100%);
+    --gold:#e9d59c; --goldd:#b7903b; --green:#7ec9a5; --amber:#c98a5e;
     --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,46 +31,44 @@
   .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--grad);display:inline-block}
   h1{font-size:clamp(38px,5.4vw,84px);font-weight:800;line-height:1.06;letter-spacing:-.02em}
   h2{font-size:clamp(26px,3.2vw,50px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:2.2vh}
-  h3{font-size:clamp(14px,1.3vw,19px);font-weight:700;margin:1.6vh 0 .6vh;color:var(--mint)}
+  h3{font-size:clamp(14px,1.3vw,19px);font-weight:700;margin:1.6vh 0 .6vh;color:var(--green)}
   .gtx{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   p{max-width:66ch;color:var(--soft);margin-bottom:1vh;font-size:clamp(14px,1.25vw,18px)}
   p.lead{color:var(--text);font-size:clamp(16px,1.5vw,22px);font-weight:500}
-  p.dim,li .why{color:var(--muted)}
   strong{color:var(--text);font-weight:700}
   em{color:var(--text);font-style:italic}
   ul,ol{max-width:70ch;margin:.6vh 0 1vh 1.2em;color:var(--soft)}
   li{margin-bottom:.9vh;font-size:clamp(13px,1.15vw,17px)}
-  ul li::marker{color:var(--pink)}
-  ol li::marker{color:var(--violet);font-weight:700}
-  code{font-family:var(--mono);font-size:.86em;background:var(--surface);border:1px solid var(--border);padding:.12em .4em;border-radius:5px;color:var(--mint)}
+  ul li::marker{color:var(--goldd)}
+  ol li::marker{color:var(--gold);font-weight:700}
+  code{font-family:var(--mono);font-size:.86em;background:var(--surface);border:1px solid var(--border);padding:.12em .4em;border-radius:5px;color:var(--green)}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.6vh 1.4vw;margin:1vh 0;max-width:80ch}
   .card .label{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6vh;font-weight:700}
-  .card.rule{border-left:3px solid var(--mint)} .card.rule .label{color:var(--mint)}
-  .card.warn{border-left:3px solid var(--orange)} .card.warn .label{color:var(--orange)}
+  .card.rule{border-left:3px solid var(--green)} .card.rule .label{color:var(--green)}
+  .card.warn{border-left:3px solid var(--amber)} .card.warn .label{color:var(--amber)}
   .card p{margin:0;font-size:clamp(13px,1.15vw,17px)}
   .cards{display:grid;gap:1.2vw;margin-top:1vh}
-  .cards.c2{grid-template-columns:repeat(2,1fr)} .cards.c4{grid-template-columns:repeat(4,1fr)}
-  .chip{display:inline-block;padding:.4em .9em;border-radius:999px;font-size:clamp(11px,1.05vw,15px);font-weight:700;border:1px solid rgba(110,231,183,.35);color:var(--mint);background:rgba(110,231,183,.07);margin:.2em .35em .2em 0}
+  .cards.c2{grid-template-columns:repeat(2,1fr)}
   .flow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:1.4vh 0;font-family:var(--mono);font-size:clamp(11px,1vw,14px)}
   .flow span{background:var(--surface);border:1px solid var(--border);padding:.5em 1em;border-radius:9px;color:var(--text)}
-  .flow i{color:var(--pink);font-style:normal;font-weight:700}
+  .flow i{color:var(--goldd);font-style:normal;font-weight:700}
   .tablewrap{overflow-x:auto;max-width:100%;margin:1vh 0}
   table{border-collapse:collapse;font-size:clamp(12px,1.1vw,16px)}
-  th{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--violet);text-align:left;padding:.7em 1em;border-bottom:1px solid rgba(167,139,250,.4)}
+  th{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:.7em 1em;border-bottom:1px solid rgba(233,213,156,.35)}
   td{padding:.7em 1em;border-bottom:1px solid var(--border);color:var(--soft);vertical-align:top}
   td:first-child{color:var(--text);font-weight:600}
   #progress{position:fixed;top:0;left:0;height:3px;background:var(--grad);width:0%;transition:width .4s ease;z-index:10}
   #counter{position:fixed;bottom:24px;right:32px;font-size:13px;color:var(--muted);z-index:10;font-weight:600;font-family:var(--mono)}
   #hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--muted);z-index:10;transition:opacity .5s;font-weight:600}
   #hint.hide{opacity:0}
-  .navbtn{position:fixed;top:50%;transform:translateY(-50%);z-index:11;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(11,13,23,.7);color:var(--muted);font-size:20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;user-select:none}
-  .navbtn:hover{color:var(--text);border-color:var(--pink)}
+  .navbtn{position:fixed;top:50%;transform:translateY(-50%);z-index:11;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:rgba(0,18,16,.75);color:var(--muted);font-size:20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;user-select:none}
+  .navbtn:hover{color:var(--text);border-color:var(--goldd)}
   #prevB{left:14px} #nextB{right:14px}
   .footer-note{font-family:var(--mono);font-size:clamp(10px,.9vw,13px);color:var(--muted);margin-top:3vh}
   .slidenum{position:absolute;top:5vh;right:7vw;font-family:var(--mono);font-size:12px;color:var(--muted);opacity:.7}
   @media (max-width:760px){
     .slide{padding:6vh 6vw;justify-content:flex-start;padding-top:9vh}
-    .cards.c2,.cards.c4{grid-template-columns:1fr}
+    .cards.c2{grid-template-columns:1fr}
     .navbtn{width:38px;height:38px}
     #hint{display:none}
   }
@@ -86,10 +84,10 @@
 
 <!-- 1 · COVER -->
 <section class="slide active">
-  <div class="kicker r"><span class="dot"></span>The Feed Media · Growth Playbook</div>
+  <div class="kicker r"><span class="dot"></span>Growth Playbook</div>
   <h1 class="r" style="--d:.05s">Media Buying<br><span class="gtx">Handbook</span></h1>
-  <p class="lead r" style="--d:.15s;margin-top:2.5vh">Meta ads for teams that are great at creative, funnels and sales, and want the buying, tracking and scaling side to be just as sharp.</p>
-  <p class="r" style="--d:.25s">SOPs and decision rules distilled from managing paid acquisition across a portfolio of B2B and consumer newsletters and lead-gen funnels.</p>
+  <p class="lead r" style="--d:.15s;margin-top:2.5vh">You already know how to make great creative, build funnels and close deals. This is the other half: how to buy, track and scale on Meta without burning money learning it the hard way.</p>
+  <p class="r" style="--d:.25s">Everything here comes from real accounts and real mistakes, ours and other people's. No theory that hasn't paid rent.</p>
   <div class="footer-note r" style="--d:.35s">16 slides · print to PDF friendly</div>
 </section>
 
@@ -98,16 +96,16 @@
   <div class="slidenum">01</div>
   <div class="kicker r"><span class="dot"></span>Foundations</div>
   <h2 class="r" style="--d:.05s">How Meta's algorithm <span class="gtx">actually works</span></h2>
-  <p class="lead r" style="--d:.1s">You are not buying ads. You are buying an optimization service, and it only works if you feed it enough signal.</p>
+  <p class="lead r" style="--d:.1s">Here's the mental shift: you're not buying ads. You're renting an optimization machine, and it's only as smart as the data you feed it.</p>
   <ul>
-    <li class="r" style="--d:.15s"><strong>The auction:</strong> every impression is auctioned. Meta shows your ad to the people it predicts will fire your conversion event.</li>
-    <li class="r" style="--d:.2s"><strong>The learning phase:</strong> each ad set needs roughly <strong>50 conversion events per week</strong> to exit "Learning". Below that: <em>Learning limited</em>, unstable delivery, inflated CPMs, unreliable results.</li>
-    <li class="r" style="--d:.25s"><strong>Signal pools at the ad set level.</strong> Three ad sets at $200/day learn three times slower than one at $600/day. Same money, worse outcome.</li>
-    <li class="r" style="--d:.3s"><strong>The optimization event defines everything.</strong> Too rare and the algorithm starves; too shallow and it fills your CRM with junk. Choosing it is the single most important buying decision.</li>
+    <li class="r" style="--d:.15s">Every impression is an auction. Meta shows your ad to whoever it predicts will fire your conversion event. That prediction is the whole product.</li>
+    <li class="r" style="--d:.2s">To make good predictions, an ad set needs about <strong>50 conversions a week</strong>. Under that, it sits in "Learning limited": delivery gets erratic, CPMs creep up, and the results you see mean very little.</li>
+    <li class="r" style="--d:.25s">Signal pools <em>per ad set</em>. Three ad sets at $200/day each learn three times slower than one at $600/day. Same money. Worse outcome. This surprises everyone the first time.</li>
+    <li class="r" style="--d:.3s">And the event you optimize for decides everything downstream. Too rare and the machine starves. Too shallow and it happily fills your CRM with garbage. More on this in slide 8.</li>
   </ul>
   <div class="card rule r" style="--d:.35s">
-    <div class="label">Golden rule</div>
-    <p><strong>Volume of signal beats granularity of control.</strong> Every extra ad set or campaign created "to stay organized" taxes the algorithm's ability to learn.</p>
+    <div class="label">If you remember one thing</div>
+    <p><strong>Signal volume beats neat organization.</strong> Every extra ad set or campaign you create "to keep things tidy" quietly taxes the machine's ability to learn.</p>
   </div>
 </section>
 
@@ -115,18 +113,18 @@
 <section class="slide">
   <div class="slidenum">02</div>
   <div class="kicker r"><span class="dot"></span>SOP · Account structure</div>
-  <h2 class="r" style="--d:.05s">Structure: <span class="gtx">as flat as possible</span></h2>
-  <div class="flow r" style="--d:.1s"><span>Campaign = one funnel / offer</span><i>→</i><span>Ad set = one audience</span><i>→</i><span>Ads = concepts being tested</span></div>
+  <h2 class="r" style="--d:.05s">Keep the account <span class="gtx">boring and flat</span></h2>
+  <div class="flow r" style="--d:.1s"><span>Campaign = one funnel</span><i>→</i><span>Ad set = one audience</span><i>→</i><span>Ads = the ideas being tested</span></div>
   <ul>
-    <li class="r" style="--d:.15s"><strong>One campaign per funnel.</strong> Never mix funnels in one ad set: Meta won't balance them, it shifts all spend to whichever produces the cheapest event and silently starves the other.</li>
-    <li class="r" style="--d:.2s"><strong>1–2 ad sets per campaign, max.</strong> Broad targeting as default. New ad set only when the <em>audience or funnel</em> is genuinely different, never to organize creatives.</li>
-    <li class="r" style="--d:.25s"><strong>New ad goes into an existing ad set</strong> by default. That's the habit that keeps accounts healthy.</li>
-    <li class="r" style="--d:.3s"><strong>Testing → core promotion:</strong> a testing campaign validates new concepts on a capped budget; winners get promoted into the core campaign where spend scales behind them.</li>
-    <li class="r" style="--d:.35s"><strong>Broad beats hyper-targeting.</strong> Meta can't target firmographics reliably anyway. The copy is the targeting.</li>
+    <li class="r" style="--d:.15s">One campaign per funnel. Don't mix two funnels in the same ad set hoping Meta balances them, it won't. It dumps all the spend on whichever gets the cheaper conversion and quietly starves the other.</li>
+    <li class="r" style="--d:.2s">One or two ad sets per campaign. That's it. Broad targeting by default. You open a new ad set when the audience or the funnel genuinely changes, not to organize your creatives.</li>
+    <li class="r" style="--d:.25s">Default habit: <strong>a new ad goes into an existing ad set.</strong> Boring, and correct.</li>
+    <li class="r" style="--d:.3s">Run a testing campaign on a capped budget. When something proves itself there, promote it to the core campaign and put real money behind it.</li>
+    <li class="r" style="--d:.35s">Don't bother with fancy targeting for B2B, Meta can't reliably find "companies over $3M revenue" anyway. Your copy does the targeting. More on that in two slides.</li>
   </ul>
   <div class="card warn r" style="--d:.4s">
-    <div class="label">Common failure mode</div>
-    <p>40 ad sets, most paused, actives fragmented at $50–200/day, everything Learning limited. Consolidate first, then judge performance. You cannot evaluate creative inside a starving structure.</p>
+    <div class="label">What bad looks like</div>
+    <p>40 ad sets, most of them paused, the live ones splitting $50–200/day each, everything flagged Learning limited. You can't judge any creative inside a structure like that. Consolidate first, evaluate after.</p>
   </div>
 </section>
 
@@ -134,17 +132,17 @@
 <section class="slide">
   <div class="slidenum">03</div>
   <div class="kicker r"><span class="dot"></span>SOP · Creative testing</div>
-  <h2 class="r" style="--d:.05s">The concept system: <span class="gtx">one ad, one argument</span></h2>
-  <p class="lead r" style="--d:.1s">The atomic unit of testing is a numbered <strong>concept</strong> (we call them DCTs): one angle, one argument, expressed as a set of hooks plus one body.</p>
+  <h2 class="r" style="--d:.05s">One ad, <span class="gtx">one argument</span></h2>
+  <p class="lead r" style="--d:.1s">The unit of testing isn't "an ad", it's a numbered <strong>concept</strong>: one angle, one argument, expressed as a handful of hooks and a single body.</p>
   <ul>
-    <li class="r" style="--d:.15s"><strong>One value proposition per ad.</strong> An ad that argues three things argues nothing.</li>
-    <li class="r" style="--d:.2s"><strong>Naming convention:</strong> <code>DCT_017_BRAND_Concept Name</code>. The number follows one sequence per client and is carried into UTMs, reports and the creative library, so every result traces back to its concept.</li>
-    <li class="r" style="--d:.25s"><strong>Volume per concept:</strong> ~5 hooks for static, ~3 for video/UGC, one universal body. Hooks are the variable; the argument is the constant.</li>
-    <li class="r" style="--d:.3s"><strong>The angle library compounds:</strong> winners' verbatim on-creative copy seeds the next generation; losers document which arguments the market rejected.</li>
+    <li class="r" style="--d:.15s">One value proposition per ad. When an ad argues three things at once, it argues nothing. If you have three arguments, that's three concepts.</li>
+    <li class="r" style="--d:.2s">Give every concept an ID and never break the pattern: <code>AC_017_FUNNEL_Concept Name</code>. That same ID goes into the UTMs, the reports and the creative library, so six months from now you can trace revenue back to the exact idea that produced it.</li>
+    <li class="r" style="--d:.25s">Per concept: around 5 hooks for static, 3 for video, one body that works for both. The hooks are the variable. The argument is the constant.</li>
+    <li class="r" style="--d:.3s">Log everything. Winners hand you their exact wording for the next round. Losers tell you which arguments the market already rejected, and that's worth almost as much.</li>
   </ul>
   <div class="card rule r" style="--d:.35s">
-    <div class="label">The hook specificity test · before and after writing every hook</div>
-    <p>"This ad runs direct response to a broad audience. The copy is the only targeting. Is this hook specific and pre-qualifying enough that <strong>only the ideal customer</strong> identifies with it, or could any other niche fit into it?" If no, rewrite until yes.</p>
+    <div class="label">The hook test · ask it before and after writing</div>
+    <p>"This runs broad. The copy is the only targeting I have. Would <strong>only my ideal customer</strong> recognize themselves in this hook, or could anyone nod along?" If anyone could nod along, it's not done.</p>
   </div>
 </section>
 
@@ -152,32 +150,32 @@
 <section class="slide">
   <div class="slidenum">04</div>
   <div class="kicker r"><span class="dot"></span>SOP · Copy</div>
-  <h2 class="r" style="--d:.05s">Copy rules that <span class="gtx">survived reality</span></h2>
-  <h3 class="r" style="--d:.1s">Ground hooks in real voice-of-customer</h3>
-  <p class="r" style="--d:.15s">Pull the actual language buyers use (forums, sales calls, replies) and use the closest verbatim match. The pain being real is not enough; <strong>the wording must mirror how the buyer says it</strong>. If the VOC isn't visceral enough, collect more VOC, don't invent it.</p>
-  <h3 class="r" style="--d:.2s">Body structure that converts</h3>
-  <div class="flow r" style="--d:.25s"><span>Agitate (1–2 lines)</span><i>→</i><span>Bridge / mechanism</span><i>→</i><span>Specific proof</span><i>→</i><span>One CTA</span></div>
-  <h3 class="r" style="--d:.3s">Disqualify in the copy</h3>
-  <p class="r" style="--d:.35s">When the offer has a floor (minimum budget, company size), say so in the ad. A disqualifier filters clicks you'd pay for and never convert. Quantify the client's effort, guarantee only what you control.</p>
-  <h3 class="r" style="--d:.4s">Ban list</h3>
-  <p class="r" style="--d:.45s">No "game-changer / unlock / transform / revolutionize". No hype adjectives carrying the argument. Simple, native-feeling creative consistently beats polished brand-looking ads in feed.</p>
+  <h2 class="r" style="--d:.05s">Copy rules we learned <span class="gtx">the expensive way</span></h2>
+  <h3 class="r" style="--d:.1s">Steal the customer's words, don't write your own</h3>
+  <p class="r" style="--d:.15s">The best hooks are barely written, they're lifted. Go where your buyers complain (forums, sales calls, email replies) and use the closest thing to their exact phrasing. The moment you "improve" it with dramatic wording, it starts smelling like an ad. If the raw material isn't visceral enough, the answer is more research, not more imagination.</p>
+  <h3 class="r" style="--d:.2s">A body that converts, in order</h3>
+  <div class="flow r" style="--d:.25s"><span>Poke the pain (1–2 lines)</span><i>→</i><span>Show the mechanism</span><i>→</i><span>Prove it, specifically</span><i>→</i><span>One ask</span></div>
+  <h3 class="r" style="--d:.3s">Say who it's NOT for</h3>
+  <p class="r" style="--d:.35s">If the offer has a floor, minimum budget, company size, put it in the ad. Sounds counterintuitive, but a disqualifier is a filter you'd otherwise pay for in wasted clicks. And only promise what you actually control.</p>
+  <h3 class="r" style="--d:.4s">Words that are banned</h3>
+  <p class="r" style="--d:.45s">"Game-changer", "unlock", "transform", "revolutionize", anything where an adjective is doing the argument's job. Also: polished, brand-perfect creative usually loses to something that looks like a person made it. Every team resists this until their own data says otherwise.</p>
 </section>
 
 <!-- 6 · METRICS -->
 <section class="slide">
   <div class="slidenum">05</div>
   <div class="kicker r"><span class="dot"></span>Framework · Metrics</div>
-  <h2 class="r" style="--d:.05s">Two metrics, <span class="gtx">in strict order</span></h2>
-  <p class="lead r" style="--d:.1s">Every funnel has a <strong>volume metric</strong> (cost per lead) and a <strong>quality metric</strong> (cost per <em>qualified</em> lead / booked call / verified subscriber). Ranking creatives requires both, weighted.</p>
+  <h2 class="r" style="--d:.05s">Two numbers run everything, <span class="gtx">in this order</span></h2>
+  <p class="lead r" style="--d:.1s">Every funnel has a volume number (what a lead costs) and a quality number (what a <em>real</em> lead costs, qualified, booked, verified). You need both to rank creatives, and they're not equals.</p>
   <div class="tablewrap r" style="--d:.15s"><table>
-    <tr><th>Metric</th><th>Role</th><th>Weight</th></tr>
-    <tr><td>Volume CAC (CPL)</td><td>Primary ranking factor: can it acquire at target cost?</td><td>~70%</td></tr>
-    <tr><td>Quality CAC (CPQL / cost per call)</td><td>Tiebreaker and guardrail: are the leads real?</td><td>~30%</td></tr>
+    <tr><th>Metric</th><th>Job</th><th>Weight</th></tr>
+    <tr><td>Volume CAC (cost per lead)</td><td>The primary ranking. Can this creative acquire at target cost?</td><td>~70%</td></tr>
+    <tr><td>Quality CAC (cost per qualified lead / booked call)</td><td>The tiebreaker and the veto. Are these leads real people we want?</td><td>~30%</td></tr>
   </table></div>
   <ul>
-    <li class="r" style="--d:.2s"><strong>Quality tolerance:</strong> quality CAC up to ~20–30% above target is acceptable <em>only if</em> volume CAC is on target.</li>
-    <li class="r" style="--d:.25s"><strong>CTR, CPM, CVR are diagnostics,</strong> not decision metrics. CTR is lumpy at weekly volumes: use it analytically, never rank by it.</li>
-    <li class="r" style="--d:.3s"><strong>Minimum sample:</strong> filter out creatives with fewer than ~5 quality conversions before ranking. Ranking on 2 conversions is ranking on noise.</li>
+    <li class="r" style="--d:.2s">Quality CAC running 20–30% over target is tolerable, but only while volume CAC is on target.</li>
+    <li class="r" style="--d:.25s">CTR, CPM, CVR are for diagnosis, not decisions. CTR especially is noisy at weekly volumes, read it for insight, never rank by it.</li>
+    <li class="r" style="--d:.3s">And don't rank anything with fewer than ~5 quality conversions. Two data points isn't a ranking, it's a coin flip.</li>
   </ul>
 </section>
 
@@ -185,41 +183,41 @@
 <section class="slide">
   <div class="slidenum">06</div>
   <div class="kicker r"><span class="dot"></span>SOP · Scaling decisions</div>
-  <h2 class="r" style="--d:.05s">The scaling <span class="gtx">decision matrix</span></h2>
+  <h2 class="r" style="--d:.05s">When to scale, hold, <span class="gtx">or kill</span></h2>
   <div class="tablewrap r" style="--d:.1s"><table>
-    <tr><th>Condition</th><th>Action</th></tr>
-    <tr><td>Volume CAC ≤ target and quality CAC ≤ ~130% of target</td><td><strong style="color:var(--mint)">Scale</strong></td></tr>
-    <tr><td>Volume CAC ≤ target, quality far above target</td><td>Reduce spend, investigate quality</td></tr>
-    <tr><td>Volume CAC above target, quality exceptional</td><td>Hold (never scale), note tradeoff</td></tr>
-    <tr><td>Volume CAC above target</td><td><strong style="color:var(--orange)">Cut or hold. Never scale.</strong></td></tr>
+    <tr><th>What you're seeing</th><th>What you do</th></tr>
+    <tr><td>Volume CAC on target, quality within ~130% of target</td><td><strong style="color:var(--green)">Scale it</strong></td></tr>
+    <tr><td>Volume on target, quality way off</td><td>Reduce, then figure out why the leads are bad</td></tr>
+    <tr><td>Volume above target but quality is exceptional</td><td>Hold. Don't scale. Say the tradeoff out loud in the report</td></tr>
+    <tr><td>Volume above target</td><td><strong style="color:var(--amber)">Cut or hold. Never scale. No exceptions</strong></td></tr>
   </table></div>
   <div class="card rule r" style="--d:.15s">
-    <div class="label">The non-negotiable</div>
-    <p><strong>Never scale a creative whose volume CAC is above target, even with excellent quality CAC.</strong> Scaling it pulls the whole account average further above target.</p>
+    <div class="label">The rule people try to argue with</div>
+    <p>Never scale a creative that's above target on volume CAC, no matter how beautiful its quality numbers look. Scale it and you drag the whole account's average further from target. It feels wrong. The math doesn't care.</p>
   </div>
-  <h3 class="r" style="--d:.2s">Tiebreakers (volume CAC within ~10%)</h3>
+  <h3 class="r" style="--d:.2s">Breaking ties (when volume CAC is within ~10%)</h3>
   <ul>
-    <li class="r" style="--d:.25s">Both above target: the one with meaningfully better quality CAC (&gt;30% lower) <em>and</em> higher CTR earns the budget.</li>
-    <li class="r" style="--d:.3s">Both on target and near-identical: don't chase a marginal ~8% volume edge if its quality CAC is ~2× worse. Quality breaks the tie.</li>
+    <li class="r" style="--d:.25s">Both above target? Budget goes to the one with clearly better quality CAC (30%+ lower) and better CTR.</li>
+    <li class="r" style="--d:.3s">Both on target, nearly identical? Don't chase an 8% volume edge when its quality cost is double. Quality wins the tie.</li>
   </ul>
   <h3 class="r" style="--d:.35s">Pause vs reduce</h3>
-  <p class="r" style="--d:.4s">Never pause on one bad week. Look at 3–4 weeks plus all-time. Sustained off-target → pause. Only 1–2 weeks off, or thin history → reduce and monitor.</p>
+  <p class="r" style="--d:.4s">One bad week means nothing, every creative has them. Look at 3–4 weeks plus all-time. A sustained pattern earns a pause. Anything shorter earns a budget reduction and another look next week.</p>
 </section>
 
 <!-- 8 · BUDGET -->
 <section class="slide">
   <div class="slidenum">07</div>
   <div class="kicker r"><span class="dot"></span>SOP · Budget</div>
-  <h2 class="r" style="--d:.05s">Budget pacing: <span class="gtx">a ritual, not a vibe</span></h2>
+  <h2 class="r" style="--d:.05s">Pacing: a weekly ritual, <span class="gtx">not a vibe</span></h2>
   <ol>
-    <li class="r" style="--d:.1s">Each account has a monthly budget. <strong>Confirm it at the start of every month</strong>, budgets change.</li>
-    <li class="r" style="--d:.15s">Weekly, compute month-to-date spend vs where you should be: <em>"Day 12 of 31 = 38.7% through the month."</em></li>
-    <li class="r" style="--d:.2s">Label each account <strong>over / under / on pace</strong>.</li>
-    <li class="r" style="--d:.25s">Adjustment = (remaining budget ÷ days left) vs current daily budget. Over pace → reduce. Under pace → increase <em>behind proven winners only</em>. On pace → say so and leave it alone.</li>
+    <li class="r" style="--d:.1s">Confirm the monthly budget at the start of every month. Budgets change more often than anyone remembers to mention.</li>
+    <li class="r" style="--d:.15s">Once a week, do the honest math: <em>"Day 12 of 31, so we should be 38.7% through the budget. Are we?"</em></li>
+    <li class="r" style="--d:.2s">Every account gets a label: over pace, under pace, on pace.</li>
+    <li class="r" style="--d:.25s">The fix is arithmetic, not intuition: remaining budget ÷ days left, compare to the current daily. Over → trim. Under → add, but only behind creatives that have already proven themselves. On pace → say so and touch nothing.</li>
   </ol>
   <div class="card rule r" style="--d:.3s">
-    <div class="label">Scaling mechanics</div>
-    <p>Raise budgets in steps of ~20–30% every few days, large jumps reset learning. Scale by adding budget to winning ad sets, not by cloning them into duplicates (duplicates fragment signal and compete in the same auctions).</p>
+    <div class="label">How to actually raise budgets</div>
+    <p>Steps of 20–30% every few days. Doubling overnight resets learning and you pay for it in a week of chaos. And scale by adding budget to the winning ad set, not by duplicating it, clones split your own signal and end up bidding against each other.</p>
   </div>
 </section>
 
@@ -227,16 +225,16 @@
 <section class="slide">
   <div class="slidenum">08</div>
   <div class="kicker r"><span class="dot"></span>Tracking · Pixel &amp; events</div>
-  <h2 class="r" style="--d:.05s">Pixel, CAPI, and <span class="gtx">choosing the event</span></h2>
+  <h2 class="r" style="--d:.05s">Pixel, CAPI, and picking <span class="gtx">the right event</span></h2>
   <ul>
-    <li class="r" style="--d:.1s"><strong>Pixel</strong> = browser-side. <strong>Conversions API</strong> = server-side. Run both, deduplicated: browsers block more every year, CAPI recovers what the pixel misses.</li>
-    <li class="r" style="--d:.15s"><strong>Map the whole funnel as events:</strong> page view → engagement → quiz start → quiz complete → lead → booked call. Optimize on one, measure all.</li>
-    <li class="r" style="--d:.2s"><strong>Verify what each event fires on.</strong> Real case: a report used <code>complete_registration</code> (fired on a form step) instead of <code>lead</code> (the actual subscription): CPL read $9.01 when the truth was $3.27. Confirm the mapping in Events Manager before choosing your denominator.</li>
-    <li class="r" style="--d:.25s"><strong>Zero conversions on a live account is a tracking bug until proven otherwise.</strong> Check the pixel before concluding "the ads don't work."</li>
+    <li class="r" style="--d:.1s">Run both trackers: the <strong>pixel</strong> in the browser and the <strong>Conversions API</strong> from the server, deduplicated. Browsers block more tracking every year; CAPI catches what the pixel drops. Most tools (HubSpot, Zapier, most ESPs) do this without custom code.</li>
+    <li class="r" style="--d:.15s">Map the whole journey as events: page view, content engagement, quiz start, quiz complete, lead, booked call. You'll optimize on one but you want eyes on all of them.</li>
+    <li class="r" style="--d:.2s">Then verify what each event <em>actually fires on</em>. True story: a report once used the "registration" event as the lead count and showed a $9.01 CPL. The real lead event said $3.27. Same account, same week, one wrong assumption about an event name.</li>
+    <li class="r" style="--d:.25s">And if a live account shows zero conversions, that's a tracking bug until you've proven otherwise. Check the pixel before concluding the ads don't work.</li>
   </ul>
   <div class="card rule r" style="--d:.3s">
-    <div class="label">Choosing the optimization event</div>
-    <p>Pick the <strong>deepest event that still clears ~50 fires/week per ad set</strong>. If booked calls run 10/month, optimizing on them starves the algorithm: optimize on the lead and feed call quality back through the CRM.</p>
+    <div class="label">Picking the optimization event</div>
+    <p>Go as deep in the funnel as you can <strong>while still clearing ~50 events a week per ad set</strong>. If booked calls happen 10 times a month, optimizing on them blinds the machine. Optimize on the lead and feed call quality back through the CRM, next slide.</p>
   </div>
 </section>
 
@@ -244,15 +242,15 @@
 <section class="slide">
   <div class="slidenum">09</div>
   <div class="kicker r"><span class="dot"></span>Tracking · CRM loop</div>
-  <h2 class="r" style="--d:.05s">Close the loop: <span class="gtx">CRM → Meta</span></h2>
-  <p class="lead r" style="--d:.1s">The endgame of B2B media buying: Meta optimizing for <em>leads that become revenue</em>, without switching to a sparse event.</p>
+  <h2 class="r" style="--d:.05s">Teach Meta what a <span class="gtx">good lead looks like</span></h2>
+  <p class="lead r" style="--d:.1s">The endgame: Meta optimizing for leads that become revenue, without you switching to an event too rare to learn from. That's what the CRM feedback loop is for.</p>
   <ol>
-    <li class="r" style="--d:.15s"><strong>Connect the CRM to Meta</strong> (HubSpot has a native integration: Marketing → Ads → connect the account, enable CRM event syncing).</li>
-    <li class="r" style="--d:.2s"><strong>Keep lifecycle stages honest:</strong> lead → qualified → call booked → won. This progression <em>is</em> the training data.</li>
-    <li class="r" style="--d:.25s"><strong>Switch to Conversion Leads optimization</strong> once a few hundred synced leads with stage progression accrue. Meta keeps optimizing on lead volume but biases delivery toward profiles that historically progress.</li>
-    <li class="r" style="--d:.3s">Expectation: pays off as data accrues, not in week one. Connect early precisely because of this.</li>
+    <li class="r" style="--d:.15s">Connect the CRM to Meta. HubSpot does this natively: Marketing → Ads → connect the account, turn on CRM event syncing. An hour of setup, once.</li>
+    <li class="r" style="--d:.2s">Keep lifecycle stages honest: lead → qualified → call booked → won. This progression is literally the training data. Sloppy stages, sloppy optimization.</li>
+    <li class="r" style="--d:.25s">Once a few hundred synced leads have moved through stages, switch campaigns to <strong>Conversion Leads</strong>. Meta still optimizes on lead volume, but starts favoring the profiles that historically progress.</li>
+    <li class="r" style="--d:.3s">Set expectations: this pays off as data accrues, not in week one. Which is exactly the argument for connecting it early.</li>
   </ol>
-  <p class="r" style="--d:.35s">Same principle for newsletters: subscriber quality (opens, verified status) fed back per-concept shows which angle brings readers vs. dead emails.</p>
+  <p class="r" style="--d:.35s">Same idea works for newsletters: feed subscriber quality (opens, verified status) back per concept, and you learn which angle brings readers and which brings dead emails.</p>
 </section>
 
 <!-- 11 · UTM -->
@@ -260,19 +258,19 @@
   <div class="slidenum">10</div>
   <div class="kicker r"><span class="dot"></span>Tracking · UTMs</div>
   <h2 class="r" style="--d:.05s">UTMs: the <span class="gtx">attribution spine</span></h2>
-  <p class="lead r" style="--d:.1s">Meta reports what Meta saw. Your CRM reports what happened. UTMs are the join key, and they only work if the schema is rigid.</p>
+  <p class="lead r" style="--d:.1s">Meta reports what Meta saw. Your CRM reports what actually happened. UTMs are the only thing joining the two, and they only work if nobody freelances the schema.</p>
   <div class="tablewrap r" style="--d:.15s"><table>
-    <tr><th>Parameter</th><th>Convention</th><th>Why</th></tr>
+    <tr><th>Parameter</th><th>What goes in it</th><th>Why</th></tr>
     <tr><td><code>utm_source</code></td><td>Fixed per channel: <code>facebookads</code></td><td>Splits paid from organic everywhere downstream</td></tr>
     <tr><td><code>utm_medium</code></td><td>Ad set name</td><td>Audience-level rollups</td></tr>
-    <tr><td><code>utm_campaign</code></td><td>Concept name (<code>DCT_017_...</code>)</td><td>Revenue per angle: feeds the angle library</td></tr>
-    <tr><td><code>utm_content</code></td><td>Meta ad ID (<code>{{ad.id}}</code>)</td><td>Unambiguous join to the exact ad</td></tr>
-    <tr><td><code>utm_term</code></td><td>Ad set ID (<code>{{adset.id}}</code>)</td><td>Same, at ad set level</td></tr>
+    <tr><td><code>utm_campaign</code></td><td>Concept ID (<code>AC_017_...</code>)</td><td>Revenue per angle, this feeds the concept library</td></tr>
+    <tr><td><code>utm_content</code></td><td>Meta ad ID (<code>{{ad.id}}</code>)</td><td>Unambiguous join back to the exact ad</td></tr>
+    <tr><td><code>utm_term</code></td><td>Ad set ID (<code>{{adset.id}}</code>)</td><td>Same thing, ad set level</td></tr>
   </table></div>
   <ul>
-    <li class="r" style="--d:.2s">Use Meta's <strong>dynamic URL parameters</strong> so tagging is automatic and typo-free.</li>
-    <li class="r" style="--d:.25s"><strong>A broken UTM is silent data loss.</strong> Audit UTMs whenever a creative shows spend with zero attributed conversions, it's usually the link, not the ad.</li>
-    <li class="r" style="--d:.3s">Belt and suspenders: capture the Meta click ID (<code>fbclid</code>) into the CRM too. Paid attribution = UTM match <em>or</em> click ID present.</li>
+    <li class="r" style="--d:.2s">Use Meta's dynamic parameters ({{ad.id}} and friends) so the tagging happens by itself and nobody fat-fingers a link.</li>
+    <li class="r" style="--d:.25s">A broken UTM doesn't error, it just silently loses data. A creative showing spend but zero attributed conversions? Check the link before you blame the ad.</li>
+    <li class="r" style="--d:.3s">Belt and suspenders: also capture the Meta click ID (<code>fbclid</code>) into the CRM. Paid = UTM match <em>or</em> click ID present.</li>
   </ul>
 </section>
 
@@ -280,16 +278,16 @@
 <section class="slide">
   <div class="slidenum">11</div>
   <div class="kicker r"><span class="dot"></span>Tracking · Attribution</div>
-  <h2 class="r" style="--d:.05s">When numbers disagree <span class="gtx">(they will)</span></h2>
+  <h2 class="r" style="--d:.05s">The numbers will disagree. <span class="gtx">Here's how to referee</span></h2>
   <ul>
-    <li class="r" style="--d:.1s"><strong>Meta counts by attribution window</strong> (default 7-day click, 1-day view); your platform counts by UTM at signup. They never match exactly. Both are "right" under their own definition.</li>
-    <li class="r" style="--d:.15s"><strong>Spend always comes from the ad platform.</strong> Never take a composite cost metric (CPL, CPQL) from a dashboard you haven't reconciled against platform spend.</li>
-    <li class="r" style="--d:.2s">Real case: an internal dashboard read cost-per-qualified-lead at $15.70 while Meta showed $49.98, missing campaigns in the spend column plus mismatched UTMs. It even generated a false "kill" recommendation for the creative driving <em>all</em> qualified leads. Fix: recompute from source of truth (Meta spend ÷ CRM-scored qualified leads) before acting.</li>
-    <li class="r" style="--d:.25s"><strong>Before any kill/scale decision based on a dashboard: reconcile it against Meta once.</strong> Material deltas mean the dashboard is broken, not the creative.</li>
+    <li class="r" style="--d:.1s">Meta counts by attribution window (7-day click, 1-day view by default). Your platform counts by UTM at signup. They will never match exactly, and both are "right" by their own rules. Stop expecting them to reconcile to the dollar.</li>
+    <li class="r" style="--d:.15s"><strong>Spend, though, always comes from the ad platform.</strong> Never trust a composite metric (CPL, cost per qualified lead) from a dashboard you haven't checked against platform spend at least once.</li>
+    <li class="r" style="--d:.2s">Cautionary tale: a dashboard once showed a cost per qualified lead of $15.70 where Meta said $49.98, its spend column was missing whole campaigns and mismatched UTMs had dumped conversions into a legacy bucket. It even recommended killing the one creative driving every qualified lead that week. The source of truth (platform spend ÷ CRM-scored leads) told the opposite story.</li>
+    <li class="r" style="--d:.25s">So: before any kill-or-scale decision based on a dashboard, reconcile it against Meta once. If the gap is big, the dashboard is what's broken.</li>
   </ul>
   <div class="card warn r" style="--d:.3s">
-    <div class="label">Rule</div>
-    <p>Never pause a creative because one system shows zero conversions. First check: UTM intact? Event firing? Attribution window? Most "dead" creatives are tracking bugs.</p>
+    <div class="label">Reflex to build</div>
+    <p>Zero conversions in one system ≠ dead creative. Check the UTM, check the event, check the window. Most "dead" creatives turn out to be tracking bugs wearing a costume.</p>
   </div>
 </section>
 
@@ -297,14 +295,14 @@
 <section class="slide">
   <div class="slidenum">12</div>
   <div class="kicker r"><span class="dot"></span>Downstream · Lead hygiene</div>
-  <h2 class="r" style="--d:.05s">Buying doesn't end <span class="gtx">at the click</span></h2>
-  <p class="lead r" style="--d:.1s">Every dollar of paid acquisition is wasted if the lead lands in a dirty database or the follow-up email lands in spam. Buying and deliverability are one system.</p>
+  <h2 class="r" style="--d:.05s">The click is not <span class="gtx">the finish line</span></h2>
+  <p class="lead r" style="--d:.1s">Every ad dollar is wasted if the lead lands in a dirty database or the follow-up email lands in spam. Buying and deliverability are one system, and the second one fails quietly.</p>
   <ul>
-    <li class="r" style="--d:.15s"><strong>Validate at the door:</strong> email validation on forms, double opt-in on lists. Gated content without validation fills your list with <code>asdf@gmail.com</code>.</li>
-    <li class="r" style="--d:.2s"><strong>Never bulk-import cold contacts</strong> (purchased lists, full CRM exports) into a sending platform. Fastest way to destroy a sending domain; recovery takes months of disciplined engaged-only sending.</li>
-    <li class="r" style="--d:.25s"><strong>Sunset non-engagers automatically:</strong> no opens/clicks in 90–120 days → suppress. Providers rank you by engagement rate; dead weight taxes every future send.</li>
-    <li class="r" style="--d:.3s"><strong>Authenticate the domain</strong> (SPF, DKIM, DMARC with reports) and monitor via Google Postmaster. Authentication buys the right to compete for the inbox; engagement wins it.</li>
-    <li class="r" style="--d:.35s">Nurture only works on leads that <em>expected</em> email. Consent at capture is a deliverability strategy, not just a legal one.</li>
+    <li class="r" style="--d:.15s">Validate at the door. Email validation on forms, double opt-in on lists. Gate content without validation and people will type <code>asdf@gmail.com</code> to get the PDF, then you'll mail that address weekly and wonder why Gmail hates you.</li>
+    <li class="r" style="--d:.2s"><strong>Never bulk-import cold contacts into a sending platform.</strong> Not a purchased list, not a "quick export of all CRM contacts". It's the fastest known way to torch a sending domain, and the recovery takes months of disciplined engaged-only sending.</li>
+    <li class="r" style="--d:.25s">Sunset the non-engagers automatically: no opens or clicks in 90–120 days, out of the sends. Mailbox providers grade you on engagement rate. Dead weight on the list taxes every future email.</li>
+    <li class="r" style="--d:.3s">Authenticate the domain (SPF, DKIM, DMARC with reports on) and watch Google Postmaster. Authentication earns you the right to compete for the inbox. Engagement is what wins it.</li>
+    <li class="r" style="--d:.35s">And nurture only works on people who expected email from you. Consent at capture is a deliverability strategy wearing a compliance costume.</li>
   </ul>
 </section>
 
@@ -312,18 +310,19 @@
 <section class="slide">
   <div class="slidenum">13</div>
   <div class="kicker r"><span class="dot"></span>SOP · Reporting</div>
-  <h2 class="r" style="--d:.05s">Weekly report: <span class="gtx">decisions, not dashboards</span></h2>
+  <h2 class="r" style="--d:.05s">Reports produce decisions, <span class="gtx">not dashboards</span></h2>
+  <p class="r" style="--d:.08s">Same five blocks, every week, same order:</p>
   <ol>
-    <li class="r" style="--d:.1s"><strong>Budget pacing</strong>: month, day, % through, each account over/under/on pace.</li>
-    <li class="r" style="--d:.15s"><strong>Cost analysis</strong>: volume CAC first, quality CAC second, each marked on/off target. Always that order.</li>
-    <li class="r" style="--d:.2s"><strong>Top 3 creatives</strong> ranked by volume + volume CAC (quality as context), with preview links.</li>
-    <li class="r" style="--d:.25s"><strong>Winning angle</strong>: one paragraph on <em>why</em> the winner wins, the argument, not the asset.</li>
-    <li class="r" style="--d:.3s"><strong>Next steps</strong>: the most important section. Every bullet an action: scale / hold / reduce / pause / investigate.</li>
+    <li class="r" style="--d:.12s"><strong>Budget pacing.</strong> Month, day, % through, each account over/under/on pace.</li>
+    <li class="r" style="--d:.16s"><strong>Cost analysis.</strong> Volume CAC first, quality CAC second, each marked against target. That order is deliberate, don't flip it.</li>
+    <li class="r" style="--d:.2s"><strong>Top 3 creatives</strong> ranked by volume and volume CAC, quality as context, with preview links.</li>
+    <li class="r" style="--d:.24s"><strong>The winning angle.</strong> One paragraph on <em>why</em> the winner is winning. The argument, not the asset.</li>
+    <li class="r" style="--d:.28s"><strong>Next steps.</strong> The section everything else exists for. Every bullet is a verb: scale, hold, reduce, pause, investigate.</li>
   </ol>
   <ul>
-    <li class="r" style="--d:.35s"><strong>Week-over-week deltas are mandatory</strong> for every KPI. A number without its delta is trivia.</li>
-    <li class="r" style="--d:.4s"><strong>Log the numbers after every report</strong> (spend, leads, CPL, quality, top creatives, and the source of prior-week figures). Next week's WoW depends on this ritual.</li>
-    <li class="r" style="--d:.45s">Secondary KPIs (CPM, CTR, CVR) never go ahead of the decision metrics.</li>
+    <li class="r" style="--d:.34s">Every KPI ships with its week-over-week delta. A number without its delta is trivia.</li>
+    <li class="r" style="--d:.38s">After the report goes out, log the numbers somewhere the next report can find them. Future-you, doing next week's comparison, will be grateful.</li>
+    <li class="r" style="--d:.42s">CPM, CTR and friends stay behind the decision metrics. Always.</li>
   </ul>
 </section>
 
@@ -331,17 +330,17 @@
 <section class="slide">
   <div class="slidenum">14</div>
   <div class="kicker r"><span class="dot"></span>Recap</div>
-  <h2 class="r" style="--d:.05s">The ten <span class="gtx">golden rules</span></h2>
+  <h2 class="r" style="--d:.05s">The ten rules worth <span class="gtx">arguing about</span></h2>
   <ol style="max-width:76ch">
-    <li class="r" style="--d:.1s"><strong>Signal volume beats structure granularity.</strong> 1–2 ad sets per campaign.</li>
+    <li class="r" style="--d:.1s"><strong>Signal volume beats neat organization.</strong> One or two ad sets per campaign.</li>
     <li class="r" style="--d:.14s"><strong>One ad, one argument.</strong> The copy is the targeting.</li>
-    <li class="r" style="--d:.18s"><strong>Optimize on the deepest event clearing ~50/week</strong>; feed deeper quality via CRM.</li>
-    <li class="r" style="--d:.22s"><strong>Volume CAC decides, quality CAC vetoes.</strong> Never scale above-target volume CAC.</li>
-    <li class="r" style="--d:.26s"><strong>Never pause on one bad week.</strong> 3–4 week pattern or reduce-and-monitor.</li>
-    <li class="r" style="--d:.3s"><strong>Rigid UTM schema + dynamic parameters.</strong> Concept in campaign slot, ad ID in content.</li>
-    <li class="r" style="--d:.34s"><strong>Spend from the ad platform, always.</strong> Reconcile dashboards before acting.</li>
-    <li class="r" style="--d:.38s"><strong>Zero conversions = tracking bug until proven otherwise.</strong></li>
-    <li class="r" style="--d:.42s"><strong>Ground copy in verbatim customer language.</strong> Winners seed the next test.</li>
+    <li class="r" style="--d:.18s"><strong>Optimize on the deepest event that still clears ~50 a week.</strong> Feed deeper quality back through the CRM.</li>
+    <li class="r" style="--d:.22s"><strong>Volume CAC decides, quality CAC vetoes.</strong> Above-target volume never scales.</li>
+    <li class="r" style="--d:.26s"><strong>One bad week proves nothing.</strong> Patterns earn pauses; blips earn reductions.</li>
+    <li class="r" style="--d:.3s"><strong>One UTM schema, dynamic parameters, no freelancing.</strong></li>
+    <li class="r" style="--d:.34s"><strong>Spend comes from the ad platform.</strong> Reconcile every dashboard once before trusting it.</li>
+    <li class="r" style="--d:.38s"><strong>Zero conversions is a tracking bug until proven otherwise.</strong></li>
+    <li class="r" style="--d:.42s"><strong>Steal the customer's words.</strong> Winners' copy seeds the next round.</li>
     <li class="r" style="--d:.46s"><strong>Protect the destination:</strong> validated capture, double opt-in, engaged-only sending, authenticated domain.</li>
   </ol>
 </section>
@@ -352,29 +351,29 @@
   <div class="kicker r"><span class="dot"></span>Reference</div>
   <h2 class="r" style="--d:.05s"><span class="gtx">Glossary</span></h2>
   <div class="cards c2">
-    <div class="card r" style="--d:.1s"><div class="label" style="color:var(--violet)">Buying</div>
-      <p><strong>CBO/ABO</strong> · budget at campaign vs ad set level<br>
-      <strong>Learning phase</strong> · calibration, ~50 conversions/week to exit<br>
-      <strong>Frequency</strong> · avg impressions per person; fatigue when climbing with CTR falling<br>
+    <div class="card r" style="--d:.1s"><div class="label" style="color:var(--gold)">Buying</div>
+      <p><strong>CBO/ABO</strong> · budget set at campaign vs ad set level<br>
+      <strong>Learning phase</strong> · calibration period, ~50 conversions/week to exit<br>
+      <strong>Frequency</strong> · avg impressions per person; fatigue signal when it climbs while CTR falls<br>
       <strong>CPM</strong> · cost per 1,000 impressions, the price of your audience</p></div>
-    <div class="card r" style="--d:.15s"><div class="label" style="color:var(--pink)">Measurement</div>
+    <div class="card r" style="--d:.15s"><div class="label" style="color:var(--goldd)">Measurement</div>
       <p><strong>CPL / CAC</strong> · cost per lead / acquisition<br>
-      <strong>CPQL / V-CAC</strong> · cost per <em>qualified</em> lead / verified acquisition<br>
+      <strong>CPQL</strong> · cost per <em>qualified</em> lead<br>
       <strong>CTR / CVR</strong> · click rate / conversion rate, diagnostics<br>
-      <strong>Attribution window</strong> · how long after click/view a conversion counts (7d-click 1d-view default)</p></div>
-    <div class="card r" style="--d:.2s"><div class="label" style="color:var(--sky)">Tracking</div>
+      <strong>Attribution window</strong> · how long after a click/view a conversion still counts (7d-click 1d-view default)</p></div>
+    <div class="card r" style="--d:.2s"><div class="label" style="color:var(--green)">Tracking</div>
       <p><strong>Pixel</strong> · browser-side event tracker<br>
       <strong>CAPI</strong> · server-side Conversions API<br>
-      <strong>UTM</strong> · URL tags joining ad → CRM<br>
+      <strong>UTM</strong> · URL tags joining ad to CRM<br>
       <strong>fbclid</strong> · Meta click ID, backup join key<br>
       <strong>Conversion Leads</strong> · Meta optimization trained on CRM lifecycle stages</p></div>
-    <div class="card r" style="--d:.25s"><div class="label" style="color:var(--orange)">Sales (B2B funnels)</div>
+    <div class="card r" style="--d:.25s"><div class="label" style="color:var(--amber)">Sales (B2B funnels)</div>
       <p><strong>ICP</strong> · ideal customer profile<br>
       <strong>ABM</strong> · account-based marketing, targeting named accounts<br>
       <strong>BDR / AE</strong> · opens conversations / closes deals<br>
       <strong>ARR</strong> · annual recurring revenue</p></div>
   </div>
-  <div class="footer-note r" style="--d:.3s">Media Buying Handbook · The Feed Media methodology · living document</div>
+  <div class="footer-note r" style="--d:.3s">Media Buying Handbook · living document</div>
 </section>
 
 <script>
