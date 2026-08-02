@@ -95,7 +95,7 @@
     <li>The learning phase</li>
     <li>Account structure: campaign, ad set, ad</li>
     <li>Concepts, CBO and dynamic creative</li>
-    <li>Launch budgets: the $5/day minimum</li>
+    <li>Budget rules: minimum spend, budget vs number of ads, cost cap</li>
     <li>The daily check</li>
     <li>Audience plays</li>
     <li>Pixel, CAPI and events</li>
@@ -110,7 +110,14 @@
   <div class="kicker r"><span class="dot"></span>Foundations</div>
   <h2 class="r" style="--d:.05s">The <span class="gtx">learning phase</span></h2>
   <p class="lead r" style="--d:.1s">Every ad set needs about <strong>50 conversion events a week</strong> to get out of the learning phase.</p>
-  <p class="r" style="--d:.2s">While an ad set is in learning, Meta is still figuring out who to show the ad to. An ad set stuck in the learning phase will always buy conversions at a higher cost than an ad set that made it out.</p>
+  <p class="r" style="--d:.15s">While an ad set is in learning, Meta is still figuring out who to show the ad to. An ad set stuck in the learning phase will always buy conversions at a higher cost than an ad set that made it out.</p>
+  <h3 class="r" style="--d:.2s">Changes reset learning</h3>
+  <ul>
+    <li class="r" style="--d:.25s">Any meaningful change (budget, creative, targeting) resets the campaign. Learning restarts from zero and Meta discards the data it had already gathered.</li>
+    <li class="r" style="--d:.3s">This is how accounts get stuck: in learning, CPL is always high. The high CPL tempts you into another change, which resets learning again, and the cycle keeps going. At that point the account lives in the learning phase permanently.</li>
+    <li class="r" style="--d:.35s">Give every change a <strong>minimum of 72 hours</strong> before judging it or touching anything else.</li>
+    <li class="r" style="--d:.4s">Change one thing at a time. When you change many things at once, you never know which change worked.</li>
+  </ul>
 </section>
 
 <!-- 3 · ACCOUNT STRUCTURE -->
@@ -133,6 +140,7 @@
   <h2 class="r" style="--d:.05s">One ad is actually <span class="gtx">a concept</span></h2>
   <p class="lead r" style="--d:.1s">One ad set contains multiple ads. Each ad is really a <strong>concept</strong>: a group of variations of the same ad.</p>
   <p class="r" style="--d:.15s">I usually run <strong>CBO with dynamic creative on</strong>, so Meta moves the spend to whichever variation is working best.</p>
+  <p class="r" style="--d:.2s">CBO keeps it simple and easy to optimize and control CPL. We have some clients on ABO, but CBO is better most of the time.</p>
   <div class="nest r" style="--d:.25s;border-color:rgba(233,213,156,.35);max-width:80ch">
     <div class="tag" style="color:var(--gold)">Campaign · CBO decides where the budget goes</div>
     <div class="nest" style="border-color:rgba(126,201,165,.4)">
@@ -152,9 +160,16 @@
 <!-- 5 · LAUNCH BUDGETS -->
 <section class="slide">
   <div class="slidenum">04</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Launch budgets</div>
-  <h2 class="r" style="--d:.05s">Give every ad set a <span class="gtx">$5/day minimum</span></h2>
-  <p class="lead r" style="--d:.1s">I usually set a daily budget minimum of <strong>$5 on each ad set</strong>. It makes sure Meta gives every ad set enough budget to actually be tested.</p>
+  <div class="kicker r"><span class="dot"></span>SOP · Budget rules</div>
+  <h2 class="r" style="--d:.05s">Budget vs <span class="gtx">number of ads</span></h2>
+  <ul>
+    <li class="r" style="--d:.1s">I usually set a daily budget minimum of <strong>$5 on each ad set</strong>. It makes sure Meta gives every ad set enough budget to actually be tested.</li>
+    <li class="r" style="--d:.15s">Always be mindful of the <strong>budget vs the number of ads</strong>. Divide the budget by the number of ads: each ad should get at least <strong>10 conversions a day worth of spend</strong>. If it doesn't, you have too many ads or too little budget.</li>
+  </ul>
+  <div class="card warn r" style="--d:.25s">
+    <div class="label">Cost cap</div>
+    <p>Cost cap works when the budget is low. At $500 it will not be able to find cheap leads, because what you are telling Meta is "find leads at only this cost". When spend is high and the audience is narrow, it will not spend the full budget.</p>
+  </div>
 </section>
 
 <!-- 6 · DAILY ROUTINE -->
