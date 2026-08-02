@@ -57,6 +57,11 @@
   th{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:.7em 1em;border-bottom:1px solid rgba(233,213,156,.35)}
   td{padding:.7em 1em;border-bottom:1px solid var(--border);color:var(--soft);vertical-align:top}
   td:first-child{color:var(--text);font-weight:600}
+  .nest{border:1px solid var(--border);border-radius:12px;padding:1.4vh 1.2vw;margin-top:1vh}
+  .nest .tag{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.4vh}
+  .vars{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8vh}
+  .vars span{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.45em .9em;font-family:var(--mono);font-size:clamp(11px,.95vw,14px);color:var(--soft)}
+  .vars span.win{border-color:var(--green);color:var(--green)}
   #progress{position:fixed;top:0;left:0;height:3px;background:var(--grad);width:0%;transition:width .4s ease;z-index:10}
   #counter{position:fixed;bottom:24px;right:32px;font-size:13px;color:var(--muted);z-index:10;font-weight:600;font-family:var(--mono)}
   #hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--muted);z-index:10;transition:opacity .5s;font-weight:600}
@@ -77,7 +82,7 @@
 <body>
 
 <div id="progress"></div>
-<div id="counter">1 / 16</div>
+<div id="counter">1 / 11</div>
 <div id="hint">Use ← → arrows or tap the edges</div>
 <div class="navbtn" id="prevB">‹</div>
 <div class="navbtn" id="nextB">›</div>
@@ -86,165 +91,75 @@
 <section class="slide active">
   <div class="kicker r"><span class="dot"></span>Growth Playbook</div>
   <h1 class="r" style="--d:.05s">Media Buying<br><span class="gtx">Handbook</span></h1>
-  <p class="lead r" style="--d:.15s;margin-top:2.5vh">You already know creative, funnels and closing. This is the other half: how to buy, track and scale on Meta.</p>
-  <p class="r" style="--d:.25s">Everything here was learned on live accounts, a lot of it by getting something wrong first.</p>
-  <div class="footer-note r" style="--d:.35s">20 slides · print to PDF friendly</div>
+  <ul class="r" style="--d:.15s;margin-top:2.5vh">
+    <li>The learning phase</li>
+    <li>Account structure: campaign, ad set, ad</li>
+    <li>Concepts, CBO and dynamic creative</li>
+    <li>Launch budgets: the $5/day minimum</li>
+    <li>The daily check</li>
+    <li>Audience plays</li>
+    <li>Pixel, CAPI and events</li>
+    <li>UTM parameters and naming convention</li>
+  </ul>
+  <div class="footer-note r" style="--d:.35s">11 slides · print to PDF friendly</div>
 </section>
 
-<!-- 2 · HOW META THINKS -->
+<!-- 2 · LEARNING PHASE -->
 <section class="slide">
   <div class="slidenum">01</div>
   <div class="kicker r"><span class="dot"></span>Foundations</div>
-  <h2 class="r" style="--d:.05s">How Meta's algorithm <span class="gtx">actually works</span></h2>
-  <p class="lead r" style="--d:.1s">Meta is an optimization machine, and it's only as smart as the conversion data you feed it.</p>
-  <ul>
-    <li class="r" style="--d:.15s">Every impression is an auction. Meta shows your ad to whoever it predicts will fire your conversion event, so everything depends on how well it can predict.</li>
-    <li class="r" style="--d:.2s">To make good predictions, an ad set needs about <strong>50 conversions a week</strong>. Under that, it sits in "Learning limited": delivery gets erratic, CPMs creep up, and the results you see mean very little.</li>
-    <li class="r" style="--d:.25s">Signal pools <em>per ad set</em>. Three ad sets at $200/day each learn three times slower than one ad set at $600/day, even though the total spend is identical.</li>
-    <li class="r" style="--d:.3s">The event you optimize for matters just as much. Pick one too rare and there isn't enough data to learn from; pick one too shallow and you get volume with no quality. There's a whole slide on this later.</li>
-  </ul>
-  <div class="card rule r" style="--d:.35s">
-    <div class="label">If you remember one thing</div>
-    <p><strong>Signal volume beats neat organization.</strong> Every extra ad set or campaign you create "to keep things tidy" splits the conversion data and slows learning down.</p>
-  </div>
+  <h2 class="r" style="--d:.05s">The <span class="gtx">learning phase</span></h2>
+  <p class="lead r" style="--d:.1s">Every ad set needs about <strong>50 conversion events a week</strong> to get out of the learning phase.</p>
+  <p class="r" style="--d:.2s">While an ad set is in learning, Meta is still figuring out who to show the ad to. An ad set stuck in the learning phase will always buy conversions at a higher cost than an ad set that made it out.</p>
 </section>
 
 <!-- 3 · ACCOUNT STRUCTURE -->
 <section class="slide">
   <div class="slidenum">02</div>
   <div class="kicker r"><span class="dot"></span>SOP · Account structure</div>
-  <h2 class="r" style="--d:.05s">Keep the account <span class="gtx">flat</span></h2>
-  <div class="flow r" style="--d:.1s"><span>Campaign = one funnel</span><i>→</i><span>Ad set = one audience</span><i>→</i><span>Ads = the ideas being tested</span></div>
+  <h2 class="r" style="--d:.05s">The structure <span class="gtx">I recommend</span></h2>
+  <div class="flow r" style="--d:.1s"><span>Campaign = one funnel</span><i>→</i><span>Ad set = one audience</span><i>→</i><span>Ad = 3–5 variations of one angle</span></div>
   <ul>
-    <li class="r" style="--d:.15s">One campaign per funnel. Don't mix two funnels in the same ad set hoping Meta balances them; it will push all the spend to whichever gets the cheaper conversion and starve the other.</li>
-    <li class="r" style="--d:.2s">One or two ad sets per campaign. That's it. Broad targeting by default. You open a new ad set when the audience or the funnel genuinely changes, not to organize your creatives.</li>
-    <li class="r" style="--d:.25s">Default habit: <strong>a new ad goes into an existing ad set.</strong></li>
-    <li class="r" style="--d:.3s">Run a testing campaign on a capped budget. When something proves itself there, promote it to the core campaign and put real money behind it.</li>
-    <li class="r" style="--d:.35s">Don't bother with fancy targeting for B2B, Meta can't reliably find "companies over $3M revenue" anyway. Your copy does the targeting. More on that in two slides.</li>
+    <li class="r" style="--d:.15s"><strong>One funnel per campaign.</strong> In practice that means one URL per campaign.</li>
+    <li class="r" style="--d:.2s"><strong>One audience per ad set.</strong></li>
+    <li class="r" style="--d:.25s"><strong>3 to 5 variations of the same angle per ad.</strong></li>
   </ul>
-  <div class="card warn r" style="--d:.4s">
-    <div class="label">What bad looks like</div>
-    <p>40 ad sets, most of them paused, the live ones splitting $50–200/day each, everything flagged Learning limited. You can't judge any creative inside a structure like that. Consolidate first, evaluate after.</p>
-  </div>
 </section>
 
-<!-- 4 · CREATIVE TESTING -->
+<!-- 4 · CONCEPTS & CBO -->
 <section class="slide">
   <div class="slidenum">03</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Creative testing</div>
-  <h2 class="r" style="--d:.05s">One ad, <span class="gtx">one argument</span></h2>
-  <p class="lead r" style="--d:.1s">The unit of testing isn't "an ad", it's a numbered <strong>concept</strong>: one angle, one argument, expressed as a handful of hooks and a single body.</p>
-  <ul>
-    <li class="r" style="--d:.15s">One value proposition per ad. When an ad argues three things at once, it argues nothing. If you have three arguments, that's three concepts.</li>
-    <li class="r" style="--d:.2s">Give every concept an ID and never break the pattern: <code>AC_017_FUNNEL_Concept Name</code>. That same ID goes into the UTMs, the reports and the creative library, so six months from now you can trace revenue back to the exact idea that produced it.</li>
-    <li class="r" style="--d:.25s">Per concept: around 5 hooks for static, 3 for video, one body that works for both. You're testing hooks against a fixed argument.</li>
-    <li class="r" style="--d:.3s">Log everything. Winners hand you their exact wording for the next round. Losers tell you which arguments the market already rejected, and that's worth almost as much.</li>
-  </ul>
-  <div class="card rule r" style="--d:.35s">
-    <div class="label">The hook test · ask it before and after writing</div>
-    <p>The ad runs broad, so the copy is the only targeting. Would <strong>only the ideal customer</strong> recognize themselves in this hook, or could anyone nod along? If anyone could, keep rewriting.</p>
+  <div class="kicker r"><span class="dot"></span>SOP · Concepts</div>
+  <h2 class="r" style="--d:.05s">One ad is actually <span class="gtx">a concept</span></h2>
+  <p class="lead r" style="--d:.1s">One ad set contains multiple ads. Each ad is really a <strong>concept</strong>: a group of variations of the same ad.</p>
+  <p class="r" style="--d:.15s">I usually run <strong>CBO with dynamic creative on</strong>, so Meta moves the spend to whichever variation is working best.</p>
+  <div class="nest r" style="--d:.25s;border-color:rgba(233,213,156,.35);max-width:80ch">
+    <div class="tag" style="color:var(--gold)">Campaign · CBO decides where the budget goes</div>
+    <div class="nest" style="border-color:rgba(126,201,165,.4)">
+      <div class="tag" style="color:var(--green)">Ad set · one audience</div>
+      <div class="nest">
+        <div class="tag" style="color:var(--soft)">Ad 1 · concept A</div>
+        <div class="vars"><span class="win">Variation 1 · performing best, gets the spend</span><span>Variation 2</span><span>Variation 3</span></div>
+      </div>
+      <div class="nest">
+        <div class="tag" style="color:var(--soft)">Ad 2 · concept B</div>
+        <div class="vars"><span>Variation 1</span><span>Variation 2</span><span>Variation 3</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 4b · LAUNCH MECHANICS -->
+<!-- 5 · LAUNCH BUDGETS -->
 <section class="slide">
   <div class="slidenum">04</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Launch mechanics</div>
-  <h2 class="r" style="--d:.05s">Launching a test wave, <span class="gtx">step by step</span></h2>
-  <ul>
-    <li class="r" style="--d:.1s">Launch in <strong>waves of ~5 concepts</strong>. Daily budget = monthly budget ÷ 30, and match the wave size to the budget: on $100/day, five ads is already plenty.</li>
-    <li class="r" style="--d:.15s">Give every ad set a <strong>$5/day minimum spend</strong> so campaign budget optimization can't starve the new ones before they get a fair shot. Then let it run 3–5 days, make sure everything is actually spending, and turn off what isn't working.</li>
-    <li class="r" style="--d:.2s">Found a low-spend ad with a great CPL? Raise the minimum gradually, $5 → 10 → 15 → 20. Jumping it straight to $30 usually kills the performance, and we've never found a clean explanation for why.</li>
-    <li class="r" style="--d:.25s">Scale the minimum to the CPL, too: a $20 floor is plenty when leads cost $2, and useless when a conversion costs $60, it can't even buy you one event.</li>
-    <li class="r" style="--d:.3s">Turn on <strong>dynamic creative</strong> so variations get tested inside the ad, and before anything goes live, check the conversion event shows <em>green</em> in Events Manager (fired recently, actively tracking).</li>
-    <li class="r" style="--d:.35s">After duplicating an ad, stay on the page until it shows "in review" or "active". Duplicates sometimes throw a silent error and sit there dead until someone notices, days later.</li>
-  </ul>
-  <div class="card rule r" style="--d:.4s">
-    <div class="label">Budget floor sanity check</div>
-    <p>Your daily budget should buy at least 5 conversions a day across the wave, 10 is healthier. If it can't, the wave is too big or the budget is too small. Fix one of them.</p>
-  </div>
+  <div class="kicker r"><span class="dot"></span>SOP · Launch budgets</div>
+  <h2 class="r" style="--d:.05s">Give every ad set a <span class="gtx">$5/day minimum</span></h2>
+  <p class="lead r" style="--d:.1s">I usually set a daily budget minimum of <strong>$5 on each ad set</strong>. It makes sure Meta gives every ad set enough budget to actually be tested.</p>
 </section>
 
-<!-- 5 · COPY RULES -->
+<!-- 6 · DAILY ROUTINE -->
 <section class="slide">
   <div class="slidenum">05</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Copy</div>
-  <h2 class="r" style="--d:.05s">How we write <span class="gtx">ad copy</span></h2>
-  <h3 class="r" style="--d:.1s">Steal the customer's words, don't write your own</h3>
-  <p class="r" style="--d:.15s">Go where your buyers complain (forums, sales calls, email replies) and use the closest thing to their exact phrasing. The moment you "improve" it with dramatic wording, it starts sounding like an ad. If the raw material isn't strong enough, do more research instead of inventing drama.</p>
-  <h3 class="r" style="--d:.2s">A body that converts, in order</h3>
-  <div class="flow r" style="--d:.25s"><span>Poke the pain (1–2 lines)</span><i>→</i><span>Show the mechanism</span><i>→</i><span>Prove it, specifically</span><i>→</i><span>One ask</span></div>
-  <h3 class="r" style="--d:.3s">Say who it's NOT for</h3>
-  <p class="r" style="--d:.35s">If the offer has a floor, minimum budget, company size, put it in the ad. It feels counterintuitive, but stating it up front filters out clicks you would otherwise pay for. And only promise what you actually control.</p>
-  <h3 class="r" style="--d:.4s">Words that are banned</h3>
-  <p class="r" style="--d:.45s">"Game-changer", "unlock", "transform", "revolutionize", anything where an adjective is doing the argument's job. Related: polished, brand-perfect creative usually loses to something that looks like a person made it.</p>
-  <h3 class="r" style="--d:.5s">Formatting limits</h3>
-  <p class="r" style="--d:.55s">Headlines under 50 characters, descriptions under ~120–150, past that, Meta truncates and your best line dies behind a "see more". And match the CTA button to the funnel: "Subscribe" for newsletters, "Download" for lead magnets, "Sign Up" for qualification flows.</p>
-</section>
-
-<!-- 6 · METRICS -->
-<section class="slide">
-  <div class="slidenum">06</div>
-  <div class="kicker r"><span class="dot"></span>Framework · Metrics</div>
-  <h2 class="r" style="--d:.05s">Two numbers run everything, <span class="gtx">in this order</span></h2>
-  <p class="lead r" style="--d:.1s">Every funnel has a volume number (what a lead costs) and a quality number (what a <em>real</em> lead costs, qualified, booked, verified). You need both to rank creatives, and they're not equals.</p>
-  <div class="tablewrap r" style="--d:.15s"><table>
-    <tr><th>Metric</th><th>Job</th><th>Weight</th></tr>
-    <tr><td>Volume CAC (cost per lead)</td><td>The primary ranking. Can this creative acquire at target cost?</td><td>~70%</td></tr>
-    <tr><td>Quality CAC (cost per qualified lead / booked call)</td><td>The tiebreaker and the veto. Are these leads real people we want?</td><td>~30%</td></tr>
-  </table></div>
-  <ul>
-    <li class="r" style="--d:.2s">Quality CAC running 20–30% over target is tolerable, but only while volume CAC is on target.</li>
-    <li class="r" style="--d:.25s">CTR, CPM, CVR are for diagnosis, not decisions. CTR especially is noisy at weekly volumes, read it for insight, never rank by it.</li>
-    <li class="r" style="--d:.3s">And don't rank anything with fewer than ~5 quality conversions. Two data points isn't a ranking, it's a coin flip.</li>
-  </ul>
-</section>
-
-<!-- 7 · SCALING -->
-<section class="slide">
-  <div class="slidenum">07</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Scaling decisions</div>
-  <h2 class="r" style="--d:.05s">When to scale, hold, <span class="gtx">or kill</span></h2>
-  <div class="tablewrap r" style="--d:.1s"><table>
-    <tr><th>What you're seeing</th><th>What you do</th></tr>
-    <tr><td>Volume CAC on target, quality within ~130% of target</td><td><strong style="color:var(--green)">Scale it</strong></td></tr>
-    <tr><td>Volume on target, quality way off</td><td>Reduce, then figure out why the leads are bad</td></tr>
-    <tr><td>Volume above target but quality is exceptional</td><td>Hold. Don't scale. Say the tradeoff out loud in the report</td></tr>
-    <tr><td>Volume above target</td><td><strong style="color:var(--amber)">Cut or hold. Never scale. No exceptions</strong></td></tr>
-  </table></div>
-  <div class="card rule r" style="--d:.15s">
-    <div class="label">The rule with no exceptions</div>
-    <p>Never scale a creative that's above target on volume CAC, no matter how good its quality numbers look. Scaling it drags the whole account's average further from target, even when it feels like the wrong call in the moment.</p>
-  </div>
-  <h3 class="r" style="--d:.2s">Breaking ties (when volume CAC is within ~10%)</h3>
-  <ul>
-    <li class="r" style="--d:.25s">Both above target? Budget goes to the one with clearly better quality CAC (30%+ lower) and better CTR.</li>
-    <li class="r" style="--d:.3s">Both on target, nearly identical? Don't chase an 8% volume edge when its quality cost is double. Quality wins the tie.</li>
-  </ul>
-  <h3 class="r" style="--d:.35s">Pause vs reduce</h3>
-  <p class="r" style="--d:.4s">One bad week means nothing, every creative has them. Look at 3–4 weeks plus all-time. A sustained pattern earns a pause. Anything shorter earns a budget reduction and another look next week.</p>
-</section>
-
-<!-- 8 · BUDGET -->
-<section class="slide">
-  <div class="slidenum">08</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Budget</div>
-  <h2 class="r" style="--d:.05s">Pacing is a <span class="gtx">weekly routine</span></h2>
-  <ol>
-    <li class="r" style="--d:.1s">Confirm the monthly budget at the start of every month. Budgets change more often than anyone remembers to mention.</li>
-    <li class="r" style="--d:.15s">Once a week, do the math: <em>"Day 12 of 31, so we should be 38.7% through the budget. Are we?"</em></li>
-    <li class="r" style="--d:.2s">Every account gets a label: over pace, under pace, on pace.</li>
-    <li class="r" style="--d:.25s">The fix is arithmetic: remaining budget ÷ days left, compared to the current daily. Over pace, trim. Under pace, add, but only behind creatives that have already proven themselves. On pace, say so and touch nothing.</li>
-  </ol>
-  <div class="card rule r" style="--d:.3s">
-    <div class="label">How to actually raise budgets</div>
-    <p>Steps of 20–30% every few days. Doubling overnight resets learning and delivery goes erratic for days. Scale by adding budget to the winning ad set rather than duplicating it; clones split your own signal and end up bidding against each other.</p>
-  </div>
-</section>
-
-<!-- 8b · DAILY ROUTINE -->
-<section class="slide">
-  <div class="slidenum">09</div>
   <div class="kicker r"><span class="dot"></span>SOP · Daily routine</div>
   <h2 class="r" style="--d:.05s">The daily check, <span class="gtx">in ten minutes</span></h2>
   <ul>
@@ -256,9 +171,9 @@
   </ul>
 </section>
 
-<!-- 8c · AUDIENCE PLAYS -->
+<!-- 7 · AUDIENCE PLAYS -->
 <section class="slide">
-  <div class="slidenum">10</div>
+  <div class="slidenum">06</div>
   <div class="kicker r"><span class="dot"></span>Craft · Audience plays</div>
   <h2 class="r" style="--d:.05s">Getting more out of <span class="gtx">broad targeting</span></h2>
   <ul>
@@ -270,9 +185,9 @@
   </ul>
 </section>
 
-<!-- 9 · PIXEL & EVENTS -->
+<!-- 8 · PIXEL & EVENTS -->
 <section class="slide">
-  <div class="slidenum">11</div>
+  <div class="slidenum">07</div>
   <div class="kicker r"><span class="dot"></span>Tracking · Pixel &amp; events</div>
   <h2 class="r" style="--d:.05s">Pixel, CAPI, and picking <span class="gtx">the right event</span></h2>
   <ul>
@@ -283,118 +198,29 @@
   </ul>
   <div class="card rule r" style="--d:.3s">
     <div class="label">Picking the optimization event</div>
-    <p>Go as deep in the funnel as you can <strong>while still clearing ~50 events a week per ad set</strong>. Reality check: a booked call costs around $300 on average, so below roughly $10k/month in spend, a call-optimized funnel simply never gets enough events to learn. Optimize on the lead and feed call quality back through the CRM, next slide.</p>
+    <p>Go as deep in the funnel as you can <strong>while still clearing ~50 events a week per ad set</strong>. Reality check: a booked call costs around $300 on average, so below roughly $10k/month in spend, a call-optimized funnel simply never gets enough events to learn. Optimize on the lead and feed call quality back through the CRM.</p>
   </div>
 </section>
 
-<!-- 10 · CRM LOOP -->
+<!-- 9 · UTM -->
 <section class="slide">
-  <div class="slidenum">12</div>
-  <div class="kicker r"><span class="dot"></span>Tracking · CRM loop</div>
-  <h2 class="r" style="--d:.05s">Teach Meta what a <span class="gtx">good lead looks like</span></h2>
-  <p class="lead r" style="--d:.1s">The goal: Meta optimizing for leads that become revenue, without switching to an event too rare to learn from. That's what the CRM feedback loop is for.</p>
-  <ol>
-    <li class="r" style="--d:.15s">Connect the CRM to Meta. HubSpot does this natively: Marketing → Ads → connect the account, turn on CRM event syncing. Setup takes about an hour, and you only do it once.</li>
-    <li class="r" style="--d:.2s">Keep lifecycle stages accurate: lead → qualified → call booked → won. This progression is the training data, so if the stages are sloppy the optimization will be too.</li>
-    <li class="r" style="--d:.25s">Once a few hundred synced leads have moved through stages, switch campaigns to <strong>Conversion Leads</strong>. Meta still optimizes on lead volume, but starts favoring the profiles that historically progress.</li>
-    <li class="r" style="--d:.3s">Set expectations: this pays off as data accrues, not in week one. Which is exactly the argument for connecting it early.</li>
-  </ol>
-  <p class="r" style="--d:.35s">Same idea works for newsletters: feed subscriber quality (opens, verified status) back per concept, and you learn which angle brings readers and which brings dead emails.</p>
-</section>
-
-<!-- 11 · UTM -->
-<section class="slide">
-  <div class="slidenum">13</div>
+  <div class="slidenum">08</div>
   <div class="kicker r"><span class="dot"></span>Tracking · UTMs</div>
-  <h2 class="r" style="--d:.05s">UTMs: the <span class="gtx">attribution spine</span></h2>
-  <p class="lead r" style="--d:.1s">Meta reports what Meta saw; your CRM reports what actually happened. UTMs are the only thing joining the two, and they only work if everyone follows the same schema.</p>
-  <div class="tablewrap r" style="--d:.15s"><table>
-    <tr><th>Parameter</th><th>What goes in it</th><th>Why</th></tr>
-    <tr><td><code>utm_source</code></td><td>Fixed per channel: <code>facebookads</code></td><td>Splits paid from organic everywhere downstream</td></tr>
-    <tr><td><code>utm_medium</code></td><td>Ad set name</td><td>Audience-level rollups</td></tr>
-    <tr><td><code>utm_campaign</code></td><td>Concept ID (<code>AC_017_...</code>)</td><td>Revenue per angle, this feeds the concept library</td></tr>
-    <tr><td><code>utm_content</code></td><td>Meta ad ID (<code>{{ad.id}}</code>)</td><td>Unambiguous join back to the exact ad</td></tr>
-    <tr><td><code>utm_term</code></td><td>Ad set ID (<code>{{adset.id}}</code>)</td><td>Same thing, ad set level</td></tr>
-  </table></div>
-  <ul>
-    <li class="r" style="--d:.2s">Use Meta's dynamic parameters ({{ad.id}} and friends) so the tagging happens by itself and nobody fat-fingers a link.</li>
-    <li class="r" style="--d:.25s">A broken UTM doesn't throw an error, the data just never arrives. If a creative shows spend but zero attributed conversions, check the link before you blame the ad.</li>
-    <li class="r" style="--d:.3s">Belt and suspenders: also capture the Meta click ID (<code>fbclid</code>) into the CRM. Paid = UTM match <em>or</em> click ID present.</li>
-  </ul>
-</section>
-
-<!-- 12 · ATTRIBUTION -->
-<section class="slide">
-  <div class="slidenum">14</div>
-  <div class="kicker r"><span class="dot"></span>Tracking · Attribution</div>
-  <h2 class="r" style="--d:.05s">When the numbers <span class="gtx">disagree</span></h2>
-  <ul>
-    <li class="r" style="--d:.1s">Meta counts by attribution window (7-day click, 1-day view by default). Your platform counts by UTM at signup. They will never match exactly, and both are "right" by their own rules. Stop expecting them to reconcile to the dollar.</li>
-    <li class="r" style="--d:.15s"><strong>Spend, though, always comes from the ad platform.</strong> Never trust a composite metric (CPL, cost per qualified lead) from a dashboard you haven't checked against platform spend at least once.</li>
-    <li class="r" style="--d:.2s">A dashboard once showed a cost per qualified lead of $15.70 where Meta said $49.98: its spend column was missing whole campaigns, and mismatched UTMs had dumped conversions into a legacy bucket. It even recommended killing the one creative driving every qualified lead that week. Platform spend ÷ CRM-scored leads told the opposite story.</li>
-    <li class="r" style="--d:.25s">So: before any kill-or-scale decision based on a dashboard, reconcile it against Meta once. If the gap is big, the dashboard is what's broken.</li>
-  </ul>
-  <div class="card warn r" style="--d:.3s">
-    <div class="label">Reflex to build</div>
-    <p>Zero conversions in one system doesn't mean a dead creative. Check the UTM, check the event, check the window. Most "dead" creatives turn out to be tracking bugs.</p>
+  <h2 class="r" style="--d:.05s">Standard <span class="gtx">UTM parameters</span></h2>
+  <p class="lead r" style="--d:.1s">This is the standard UTM string I use on every ad:</p>
+  <div class="card r" style="--d:.15s">
+    <p><code>?utm_source=facebookads&amp;utm_medium={{adset.name}}&amp;utm_campaign={{ad.name}}</code></p>
+  </div>
+  <p class="r" style="--d:.2s">The dynamic parameters ({{adset.name}}, {{ad.name}}) fill themselves in, so every ad gets tagged automatically.</p>
+  <div class="card rule r" style="--d:.25s">
+    <div class="label">Naming convention</div>
+    <p>For this to work, we need one standard naming convention for collateral, for example <code>COLL_101_AD NAME</code>. The ad name flows straight into the UTMs, so the naming convention is what makes tracking usable.</p>
   </div>
 </section>
 
-<!-- 13 · LEAD HYGIENE -->
+<!-- 10 · GOLDEN RULES -->
 <section class="slide">
-  <div class="slidenum">15</div>
-  <div class="kicker r"><span class="dot"></span>Downstream · Lead hygiene</div>
-  <h2 class="r" style="--d:.05s">The click is not <span class="gtx">the finish line</span></h2>
-  <p class="lead r" style="--d:.1s">Every ad dollar is wasted if the lead lands in a dirty database or the follow-up email lands in spam. Buying and deliverability are one system, and nothing warns you when the second half breaks.</p>
-  <ul>
-    <li class="r" style="--d:.15s">Validate at the door. Email validation on forms, double opt-in on lists. Gate content without validation and people will type <code>asdf@gmail.com</code> to get the PDF, then you'll mail that address weekly and wonder why Gmail hates you.</li>
-    <li class="r" style="--d:.2s"><strong>Never bulk-import cold contacts into a sending platform.</strong> Not a purchased list, not a "quick export of all CRM contacts". It's the fastest known way to torch a sending domain, and the recovery takes months of disciplined engaged-only sending.</li>
-    <li class="r" style="--d:.25s">Sunset the non-engagers automatically: no opens or clicks in 90–120 days, out of the sends. Mailbox providers grade you on engagement rate. Dead weight on the list taxes every future email.</li>
-    <li class="r" style="--d:.3s">Authenticate the domain (SPF, DKIM, DMARC with reports on) and watch Google Postmaster. Authentication gets you considered for the inbox; engagement rate decides whether you land there.</li>
-    <li class="r" style="--d:.35s">And nurture only works on people who expected email from you. Real consent at capture protects deliverability at least as much as it protects you legally.</li>
-  </ul>
-</section>
-
-<!-- 14 · REPORTING -->
-<section class="slide">
-  <div class="slidenum">16</div>
-  <div class="kicker r"><span class="dot"></span>SOP · Reporting</div>
-  <h2 class="r" style="--d:.05s">Reports produce decisions, <span class="gtx">not dashboards</span></h2>
-  <p class="r" style="--d:.08s">Same five blocks, every week, same order:</p>
-  <ol>
-    <li class="r" style="--d:.12s"><strong>Budget pacing.</strong> Month, day, % through, each account over/under/on pace.</li>
-    <li class="r" style="--d:.16s"><strong>Cost analysis.</strong> Volume CAC first, quality CAC second, each marked against target. That order is deliberate, don't flip it.</li>
-    <li class="r" style="--d:.2s"><strong>Top 3 creatives</strong> ranked by volume and volume CAC, quality as context, with preview links.</li>
-    <li class="r" style="--d:.24s"><strong>The winning angle.</strong> One paragraph on <em>why</em> the winner is winning. The argument, not the asset.</li>
-    <li class="r" style="--d:.28s"><strong>Next steps.</strong> This is the section the rest of the report exists for. Every bullet is a verb: scale, hold, reduce, pause, investigate.</li>
-  </ol>
-  <ul>
-    <li class="r" style="--d:.34s">Every KPI comes with its week-over-week delta; without it, nobody can tell whether the number is good or bad.</li>
-    <li class="r" style="--d:.38s">After the report goes out, log the numbers somewhere the next report can find them, so next week's comparison doesn't start from scratch.</li>
-    <li class="r" style="--d:.42s">CPM, CTR and the other diagnostics stay behind the decision metrics.</li>
-  </ul>
-</section>
-
-<!-- 14b · SCOPE -->
-<section class="slide">
-  <div class="slidenum">17</div>
-  <div class="kicker r"><span class="dot"></span>Judgment · Scope &amp; expectations</div>
-  <h2 class="r" style="--d:.05s">What ads can fix, <span class="gtx">and what they can't</span></h2>
-  <p class="lead r" style="--d:.1s">Media buying owns everything <strong>before the click</strong>. After the click (landing page, funnel, offer) the buyer advises, but the funnel's owner decides and executes.</p>
-  <ul>
-    <li class="r" style="--d:.15s">Ads cannot manufacture demand for an unproven product. Advertising a thing nobody has ever bought is a different, much harder problem than marketing a thing people already buy, and no amount of creative testing changes that. Know which problem you're solving before you promise results.</li>
-    <li class="r" style="--d:.2s">When a post-click fix is needed, run it through three questions: <strong>would it move performance meaningfully? is it cheap or expensive to do? would the fix be reusable, or a one-off?</strong> Two or three yeses, do it. Otherwise, recommend it and hand it to whoever owns the funnel.</li>
-    <li class="r" style="--d:.25s">And when someone asks for a tactic you're confident won't work (wrong channel, wrong event, budget too small for the funnel), don't quietly say yes. Show the math for why it won't work and propose what would.</li>
-  </ul>
-  <div class="card warn r" style="--d:.3s">
-    <div class="label">A pattern to avoid</div>
-    <p>Agreeing to optimize for an event the budget can't support because saying yes felt easier on the call. The campaign starves, and three weeks later everyone is asking what went wrong. Do the event-volume math out loud, in the meeting.</p>
-  </div>
-</section>
-
-<!-- 15 · GOLDEN RULES -->
-<section class="slide">
-  <div class="slidenum">18</div>
+  <div class="slidenum">09</div>
   <div class="kicker r"><span class="dot"></span>Recap</div>
   <h2 class="r" style="--d:.05s">The <span class="gtx">ten rules</span></h2>
   <ol style="max-width:76ch">
@@ -411,9 +237,9 @@
   </ol>
 </section>
 
-<!-- 16 · GLOSSARY -->
+<!-- 11 · GLOSSARY -->
 <section class="slide">
-  <div class="slidenum">19</div>
+  <div class="slidenum">10</div>
   <div class="kicker r"><span class="dot"></span>Reference</div>
   <h2 class="r" style="--d:.05s"><span class="gtx">Glossary</span></h2>
   <div class="cards c2">
